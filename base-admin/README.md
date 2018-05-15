@@ -11,6 +11,9 @@
 用户名：admin 密码：admin
 
 页面效果：
-https://github.com/supershen1988/base_pro
 
 ![Alt text](https://github.com/supershen1988/base_pro/blob/master/base-admin/readme/1.png)
+![Alt text](https://github.com/supershen1988/base_pro/blob/master/base-admin/readme/2.png)
+![Alt text](https://github.com/supershen1988/base_pro/blob/master/base-admin/readme/3.png)
+![Alt text](https://github.com/supershen1988/base_pro/blob/master/base-admin/readme/4.png)
+![Alt text](https://github.com/supershen1988/base_pro/blob/master/base-admin/readme/5.png)
