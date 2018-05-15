@@ -24,6 +24,7 @@ https://github.com/springside/springside4/wiki/Home4.0
 2. 增加shiro权限控制，实现直接访问url提示“无权限”功能；
 3. 做分支项目将spring data jpa 更改为mybatis版本；
 4. 先想到这么多吧。
+
 页面效果：
 
 ![Alt text](https://github.com/supershen1988/base_pro/blob/master/base-admin/readme/1.png)
@@ -31,3 +32,6 @@ https://github.com/springside/springside4/wiki/Home4.0
 ![Alt text](https://github.com/supershen1988/base_pro/blob/master/base-admin/readme/3.png)
 ![Alt text](https://github.com/supershen1988/base_pro/blob/master/base-admin/readme/4.png)
 ![Alt text](https://github.com/supershen1988/base_pro/blob/master/base-admin/readme/5.png)
+
+
+最后感谢江南白衣兄的springside伴我成长。
