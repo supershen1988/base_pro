@@ -1,19 +1,21 @@
+DROP TABLE IF EXISTS base_user_role;
+DROP TABLE IF EXISTS base_role_perm;
 DROP TABLE IF EXISTS base_user;
 DROP TABLE IF EXISTS base_role;
 DROP TABLE IF EXISTS base_perm;
-DROP TABLE IF EXISTS base_user_role;
-DROP TABLE IF EXISTS base_role_perm;
 
-DROP TABLE IF EXISTS base_doctor;
+
 
 CREATE TABLE base_user(
 	`id` INT(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
 	`username` VARCHAR(255) NOT NULL COMMENT '账号',
+	`nickname` VARCHAR(255) NOT NULL COMMENT '账号',
 	`password` VARCHAR(500) NOT NULL COMMENT '密码',
 	`creater` VARCHAR(255) NOT NULL COMMENT '创建人',
 	`create_time` TIMESTAMP NOT NULL COMMENT '创建时间',
 	`updater` VARCHAR(255) NOT NULL COMMENT '更新人',
 	`update_time` TIMESTAMP NOT NULL COMMENT '更新时间',
+	salt varchar(64) COMMENT '加密盐值',
 	PRIMARY KEY (`id`)
 )ENGINE=INNODB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT '用户表';
 

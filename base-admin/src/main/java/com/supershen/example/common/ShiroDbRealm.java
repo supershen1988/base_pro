@@ -10,11 +10,12 @@ import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.SimpleAuthenticationInfo;
 import org.apache.shiro.authc.UsernamePasswordToken;
-import org.apache.shiro.authc.credential.SimpleCredentialsMatcher;
+import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
+import org.apache.shiro.util.ByteSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.google.common.base.Objects;
 import com.supershen.example.entity.User;
 import com.supershen.example.service.AccountService;
+import com.supershen.example.service.UserService;
+import com.supershen.example.utils.Encodes;
 /**
  * shiro授权回调类
  * @author gshen
@@ -48,12 +51,13 @@ public class ShiroDbRealm extends AuthorizingRealm {
 		if (user == null) {
 			return null;
 		}
-		
+		//获取盐值
+		byte[] salt = Encodes.decodeHex(user.getSalt());
 		ShiroUser shiroUser = new ShiroUser();
 		shiroUser.setId(user.getId());
 		shiroUser.setUsername(user.getUsername());
-		
-		return new SimpleAuthenticationInfo(shiroUser, user.getPassword(), getName());
+		//shiroUser.setNickname(user.getNickname());
+		return new SimpleAuthenticationInfo(shiroUser, user.getPassword(),ByteSource.Util.bytes(salt), getName());
 
 	}
 
@@ -80,11 +84,11 @@ public class ShiroDbRealm extends AuthorizingRealm {
 	 */
 	@PostConstruct
 	public void initCredentialsMatcher() {
-		// HashedCredentialsMatcher matcher = new HashedCredentialsMatcher(AccountService.HASH_ALGORITHM);
+		HashedCredentialsMatcher matcher = new HashedCredentialsMatcher(UserService.HASH_ALGORITHM);
 		
-		SimpleCredentialsMatcher matcher = new SimpleCredentialsMatcher();
+		//SimpleCredentialsMatcher matcher = new SimpleCredentialsMatcher();
 		
-		// matcher.setHashIterations(AccountService.HASH_INTERATIONS);
+		 matcher.setHashIterations(UserService.HASH_INTERATIONS);
 
 		setCredentialsMatcher(matcher);
 	}

@@ -71,8 +71,11 @@ public class UserController {
 			userService.save(entity, ids);
 			redirectAttributes.addFlashAttribute(Constants.MSG, "保存成功!");
 		} catch (Exception e) {
+			e.printStackTrace();
 			redirectAttributes.addFlashAttribute(Constants.MSG, "保存失败:" + e.getMessage());
 		}
+			
+			
 
 		return "redirect:/sys/user";
 	}

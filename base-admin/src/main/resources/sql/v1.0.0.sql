@@ -1,5 +1,5 @@
-INSERT INTO base_user(id, username, PASSWORD, creater, create_time, updater, update_time) VALUES(1, 'admin', 'admin', 'admin', NOW(), 'admin', NOW());
-INSERT INTO base_user(id, username, PASSWORD, creater, create_time, updater, update_time) VALUES(2, 'user', 'user', 'admin', NOW(), 'admin', NOW());
+INSERT INTO base_user(id, username,nickname, PASSWORD, creater, create_time, updater, update_time,salt) VALUES(1, 'admin', '管理员','691b14d79bf0fa2215f155235df5e670b64394cc', 'admin', NOW(), 'admin', NOW(),'7efbd59d9741d34f');
+INSERT INTO base_user(id, username,nickname, PASSWORD, creater, create_time, updater, update_time,salt) VALUES(2, 'user','用户', '240db50d13618eed8b3a098e8d988ec9685eaa42', 'admin', NOW(), 'admin', NOW(),'24c2328ba6a80210');
 
 INSERT INTO base_role(id, NAME, remark) VALUES(1, 'admin', '超级管理员');
 INSERT INTO base_role(id, NAME, remark) VALUES(2, 'user', '用户');

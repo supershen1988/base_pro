@@ -16,6 +16,7 @@ import javax.persistence.OrderBy;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.common.collect.Sets;
 
 /**
@@ -41,6 +42,11 @@ public class User implements Idable {
 	private String updater;
 	/** 更新时间 */
 	private Date updateTime;
+	/** 加密盐值 */
+	private String salt;
+	
+	/** 密码二次校验 临时属性 */
+	private String plainPassword;
 	
 	/** 角色集合 */
 	private Set<Role> roles = Sets.newLinkedHashSet();
@@ -149,6 +155,38 @@ public class User implements Idable {
 		
 		return remarks;
 	}
+	
+
+	public String getSalt() {
+		return salt;
+	}
+
+	public void setSalt(String salt) {
+		this.salt = salt;
+	}
+	
+	// 不持久化到数据库，也不显示在Restful接口的属性.
+	@Transient
+	@JsonIgnore
+	public String getPlainPassword() {
+		return plainPassword;
+	}
+
+	public void setPlainPassword(String plainPassword) {
+		this.plainPassword = plainPassword;
+	}
+	
+	@Override
+	public User clone() {
+		User user = null;
+		try {
+			user = (User) super.clone();
+		} catch (CloneNotSupportedException e) {
+		}
+		return user;
+	}
+	
+	
 
 	@Override
 	public String toString() {
