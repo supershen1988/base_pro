@@ -1,17 +1,14 @@
 package com.supershen.example.service;
 
-import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 import javax.annotation.Resource;
-
-import net.sf.ehcache.search.Direction;
 
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.supershen.example.dao.UserMapper;
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.supershen.example.dao.UserPlusMapper;
 import com.supershen.example.entity.User;
 
 @Component
@@ -19,7 +16,7 @@ import com.supershen.example.entity.User;
 public class UserService {
 
 	@Resource
-	private UserMapper userMapper;
+	private UserPlusMapper userMapper;
 
 	public void insert(User entity) {
 
@@ -28,22 +25,27 @@ public class UserService {
 
 	public void update(User entity) {
 
-		userMapper.updateByPrimaryKeySelective(entity);
+		userMapper.updateById(entity);
 	}
 
 	@Transactional(readOnly = true)
 	public User findOne(Integer id) {
 
-		return userMapper.selectByPrimaryKey(id);
+		return userMapper.selectById(id);
 	}
 
 	public void delete(Integer id) {
-		userMapper.deleteByPrimaryKey(id);
+		userMapper.deleteById(id);
 	}
 
 	public List<User> findAll() {
-		// TODO Auto-generated method stub
-		return userMapper.selectAll();
+		return userMapper.selectList(
+		        new EntityWrapper<User>()
+				);
+	}
+
+	public void save(User entity) {
+		userMapper.insert(entity);
 	}
 
 }

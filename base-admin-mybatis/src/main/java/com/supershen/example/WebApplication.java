@@ -10,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 //SpringBoot 应用标识
 @SpringBootApplication
+//扫描dao或者是Mapper接口
 @MapperScan("com.supershen.example.dao")
 public class WebApplication 
 {

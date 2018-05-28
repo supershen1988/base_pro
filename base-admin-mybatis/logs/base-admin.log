@@ -1,0 +1,177 @@
+10:31:35.952 [main] ERROR o.s.boot.SpringApplication - Application startup failed
+java.lang.IllegalStateException: Cannot bind to SpringApplication
+	at org.springframework.boot.context.config.ConfigFileApplicationListener.bindToSpringApplication(ConfigFileApplicationListener.java:233)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener.postProcessEnvironment(ConfigFileApplicationListener.java:186)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener.onApplicationEnvironmentPreparedEvent(ConfigFileApplicationListener.java:171)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener.onApplicationEvent(ConfigFileApplicationListener.java:157)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:167)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:122)
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:74)
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:54)
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:325)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:296)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.supershen.example.WebApplication.main(WebApplication.java:21)
+Caused by: org.springframework.validation.BindException: org.springframework.boot.bind.RelaxedDataBinder$RelaxedBeanPropertyBindingResult: 1 errors
+Field error in object 'spring.main' on field 'bannerMode': rejected value [on]; codes [typeMismatch.spring.main.bannerMode,typeMismatch.bannerMode,typeMismatch.org.springframework.boot.Banner$Mode,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [spring.main.bannerMode,bannerMode]; arguments []; default message [bannerMode]]; default message [Failed to convert property value of type 'java.lang.String' to required type 'org.springframework.boot.Banner$Mode' for property 'bannerMode'; nested exception is org.springframework.core.convert.ConversionFailedException: Failed to convert from type [java.lang.String] to type [org.springframework.boot.Banner$Mode] for value 'on'; nested exception is java.lang.IllegalArgumentException: No enum constant org.springframework.boot.Banner.Mode.on]
+	at org.springframework.boot.bind.PropertiesConfigurationFactory.checkForBindingErrors(PropertiesConfigurationFactory.java:359)
+	at org.springframework.boot.bind.PropertiesConfigurationFactory.doBindPropertiesToTarget(PropertiesConfigurationFactory.java:276)
+	at org.springframework.boot.bind.PropertiesConfigurationFactory.bindPropertiesToTarget(PropertiesConfigurationFactory.java:240)
+	at org.springframework.boot.context.config.ConfigFileApplicationListener.bindToSpringApplication(ConfigFileApplicationListener.java:230)
+	... 13 common frames omitted
+10:32:27.934 [main] INFO  com.supershen.example.WebApplication - Starting WebApplication on ThinkPad with PID 73760 (E:\gitworkspace\base-admin-mybatis\target\classes started by Think in E:\gitworkspace\base-admin-mybatis)
+10:32:27.934 [main] INFO  com.supershen.example.WebApplication - No active profile set, falling back to default profiles: default
+10:32:27.994 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7b98f307: startup date [Mon May 28 10:32:27 CST 2018]; root of context hierarchy
+10:32:28.144 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.5.Final
+10:32:28.522 [main] WARN  o.m.s.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'userPlusMapper' and 'com.supershen.example.dao.UserPlusMapper' mapperInterface. Bean already defined with the same name!
+10:32:28.522 [main] WARN  o.m.s.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.supershen.example.dao]' package. Please check your configuration.
+10:32:29.932 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+10:32:29.949 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+10:32:29.959 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.15
+10:32:30.269 [localhost-startStop-1] INFO  org.apache.jasper.servlet.TldScanner - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+10:32:30.279 [localhost-startStop-1] INFO  o.a.c.c.C.[.[.[/base-admin-mybatis] - Initializing Spring embedded WebApplicationContext
+10:32:30.449 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+10:32:30.459 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+10:32:30.459 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+10:32:30.459 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+10:32:30.459 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+10:32:32.229 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+10:32:32.244 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+10:32:32.264 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+10:32:32.294 [main] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+10:32:32.354 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+10:32:32.364 [main] INFO  com.supershen.example.WebApplication - Started WebApplication in 4.8 seconds (JVM running for 5.324)
+11:12:59.362 [main] INFO  com.supershen.example.WebApplication - Starting WebApplication on ThinkPad with PID 46436 (E:\gitworkspace\base-admin-mybatis\target\classes started by Think in E:\gitworkspace\base-admin-mybatis)
+11:12:59.365 [main] INFO  com.supershen.example.WebApplication - No active profile set, falling back to default profiles: default
+11:12:59.435 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@692f203f: startup date [Mon May 28 11:12:59 CST 2018]; root of context hierarchy
+11:12:59.548 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.5.Final
+11:12:59.965 [main] WARN  o.m.s.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'userPlusMapper' and 'com.supershen.example.dao.UserPlusMapper' mapperInterface. Bean already defined with the same name!
+11:12:59.965 [main] WARN  o.m.s.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.supershen.example.dao]' package. Please check your configuration.
+11:13:01.314 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+11:13:01.335 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+11:13:01.337 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.15
+11:13:01.657 [localhost-startStop-1] INFO  org.apache.jasper.servlet.TldScanner - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+11:13:01.663 [localhost-startStop-1] INFO  o.a.c.c.C.[.[.[/base-admin-mybatis] - Initializing Spring embedded WebApplicationContext
+11:13:01.851 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+11:13:01.856 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+11:13:01.857 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+11:13:01.857 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+11:13:01.857 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+11:13:03.593 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+11:13:03.615 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+11:13:03.631 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+11:13:03.650 [main] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+11:13:03.699 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+11:13:03.708 [main] INFO  com.supershen.example.WebApplication - Started WebApplication in 4.687 seconds (JVM running for 5.268)
+11:21:59.345 [main] INFO  com.supershen.example.WebApplication - Starting WebApplication on ThinkPad with PID 89004 (E:\gitworkspace\base-admin-mybatis\target\classes started by Think in E:\gitworkspace\base-admin-mybatis)
+11:21:59.348 [main] INFO  com.supershen.example.WebApplication - No active profile set, falling back to default profiles: default
+11:21:59.409 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7b98f307: startup date [Mon May 28 11:21:59 CST 2018]; root of context hierarchy
+11:21:59.516 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.5.Final
+11:21:59.959 [main] WARN  o.m.s.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'userPlusMapper' and 'com.supershen.example.dao.UserPlusMapper' mapperInterface. Bean already defined with the same name!
+11:21:59.959 [main] WARN  o.m.s.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.supershen.example.dao]' package. Please check your configuration.
+11:22:01.293 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+11:22:01.313 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+11:22:01.315 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.15
+11:22:01.672 [localhost-startStop-1] INFO  org.apache.jasper.servlet.TldScanner - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+11:22:01.677 [localhost-startStop-1] INFO  o.a.c.c.C.[.[.[/base-admin-mybatis] - Initializing Spring embedded WebApplicationContext
+11:22:01.857 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+11:22:01.862 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+11:22:01.862 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+11:22:01.862 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+11:22:01.862 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+11:22:03.572 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+11:22:03.591 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+11:22:03.608 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+11:22:03.631 [main] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+11:22:03.688 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+11:22:03.694 [main] INFO  com.supershen.example.WebApplication - Started WebApplication in 4.693 seconds (JVM running for 5.24)
+11:26:30.049 [main] INFO  com.supershen.example.WebApplication - Starting WebApplication on ThinkPad with PID 95216 (E:\gitworkspace\base-admin-mybatis\target\classes started by Think in E:\gitworkspace\base-admin-mybatis)
+11:26:30.052 [main] INFO  com.supershen.example.WebApplication - No active profile set, falling back to default profiles: default
+11:26:30.120 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7b98f307: startup date [Mon May 28 11:26:30 CST 2018]; root of context hierarchy
+11:26:30.234 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.5.Final
+11:26:30.690 [main] WARN  o.m.s.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'userPlusMapper' and 'com.supershen.example.dao.UserPlusMapper' mapperInterface. Bean already defined with the same name!
+11:26:30.690 [main] WARN  o.m.s.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.supershen.example.dao]' package. Please check your configuration.
+11:26:32.137 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+11:26:32.156 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+11:26:32.158 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.15
+11:26:32.482 [localhost-startStop-1] INFO  org.apache.jasper.servlet.TldScanner - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+11:26:32.487 [localhost-startStop-1] INFO  o.a.c.c.C.[.[.[/base-admin-mybatis] - Initializing Spring embedded WebApplicationContext
+11:26:32.661 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+11:26:32.666 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+11:26:32.667 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+11:26:32.667 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+11:26:32.667 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+11:26:34.545 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+11:26:34.568 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+11:26:34.585 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+11:26:34.604 [main] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+11:26:34.661 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+11:26:34.665 [main] INFO  com.supershen.example.WebApplication - Started WebApplication in 5.0 seconds (JVM running for 5.53)
+11:26:46.316 [main] INFO  com.supershen.example.WebApplication - Starting WebApplication on ThinkPad with PID 89180 (E:\gitworkspace\base-admin-mybatis\target\classes started by Think in E:\gitworkspace\base-admin-mybatis)
+11:26:46.320 [main] INFO  com.supershen.example.WebApplication - No active profile set, falling back to default profiles: default
+11:26:46.390 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7b98f307: startup date [Mon May 28 11:26:46 CST 2018]; root of context hierarchy
+11:26:46.486 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.5.Final
+11:26:46.905 [main] WARN  o.m.s.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'userPlusMapper' and 'com.supershen.example.dao.UserPlusMapper' mapperInterface. Bean already defined with the same name!
+11:26:46.905 [main] WARN  o.m.s.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.supershen.example.dao]' package. Please check your configuration.
+11:26:48.245 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+11:26:48.265 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+11:26:48.267 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.15
+11:26:48.590 [localhost-startStop-1] INFO  org.apache.jasper.servlet.TldScanner - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+11:26:48.595 [localhost-startStop-1] INFO  o.a.c.c.C.[.[.[/base-admin-mybatis] - Initializing Spring embedded WebApplicationContext
+11:26:48.764 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+11:26:48.770 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+11:26:48.770 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+11:26:48.771 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+11:26:48.771 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+11:26:50.487 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+11:26:50.510 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+11:26:50.523 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+11:26:50.545 [main] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+11:26:50.604 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+11:26:50.610 [main] INFO  com.supershen.example.WebApplication - Started WebApplication in 4.649 seconds (JVM running for 5.166)
+13:02:13.814 [main] INFO  com.supershen.example.WebApplication - Starting WebApplication on ThinkPad with PID 78796 (E:\gitworkspace\base-admin-mybatis\target\classes started by Think in E:\gitworkspace\base-admin-mybatis)
+13:02:13.818 [main] INFO  com.supershen.example.WebApplication - No active profile set, falling back to default profiles: default
+13:02:13.888 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7b98f307: startup date [Mon May 28 13:02:13 CST 2018]; root of context hierarchy
+13:02:14.028 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.5.Final
+13:02:14.420 [main] WARN  o.m.s.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'userPlusMapper' and 'com.supershen.example.dao.UserPlusMapper' mapperInterface. Bean already defined with the same name!
+13:02:14.420 [main] WARN  o.m.s.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.supershen.example.dao]' package. Please check your configuration.
+13:02:15.788 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+13:02:15.808 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+13:02:15.809 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.15
+13:02:16.163 [localhost-startStop-1] INFO  org.apache.jasper.servlet.TldScanner - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+13:02:16.169 [localhost-startStop-1] INFO  o.a.c.c.C.[.[.[/base-admin-mybatis] - Initializing Spring embedded WebApplicationContext
+13:02:16.352 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+13:02:16.357 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+13:02:16.358 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+13:02:16.358 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+13:02:16.358 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+13:02:18.127 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+13:02:18.151 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+13:02:18.170 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+13:02:18.194 [main] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+13:02:18.252 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+13:02:18.261 [main] INFO  com.supershen.example.WebApplication - Started WebApplication in 4.801 seconds (JVM running for 5.328)
+13:08:57.515 [main] INFO  com.supershen.example.WebApplication - Starting WebApplication on ThinkPad with PID 92484 (E:\gitworkspace\base-admin-mybatis\target\classes started by Think in E:\gitworkspace\base-admin-mybatis)
+13:08:57.518 [main] INFO  com.supershen.example.WebApplication - No active profile set, falling back to default profiles: default
+13:08:57.578 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7b98f307: startup date [Mon May 28 13:08:57 CST 2018]; root of context hierarchy
+13:08:57.677 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.5.Final
+13:08:58.079 [main] WARN  o.m.s.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'userPlusMapper' and 'com.supershen.example.dao.UserPlusMapper' mapperInterface. Bean already defined with the same name!
+13:08:58.079 [main] WARN  o.m.s.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.supershen.example.dao]' package. Please check your configuration.
+13:08:59.436 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+13:08:59.455 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+13:08:59.457 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.15
+13:08:59.804 [localhost-startStop-1] INFO  org.apache.jasper.servlet.TldScanner - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+13:08:59.810 [localhost-startStop-1] INFO  o.a.c.c.C.[.[.[/base-admin-mybatis] - Initializing Spring embedded WebApplicationContext
+13:08:59.991 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+13:08:59.996 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+13:08:59.997 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+13:08:59.997 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+13:08:59.997 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+13:09:01.862 [main] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+13:09:01.883 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+13:09:01.904 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+13:09:01.934 [main] INFO  o.a.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+13:09:02.006 [main] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+13:09:02.013 [main] INFO  com.supershen.example.WebApplication - Started WebApplication in 4.87 seconds (JVM running for 5.408)
