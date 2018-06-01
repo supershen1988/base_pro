@@ -1,19 +1,24 @@
 server:
-  port: 8080
+  port: 8081
   tomcat:
     uri-encoding: UTF-8
   compression:
     enabled: true
     min-response-size: 1
   contextPath: /base-admin-mybatis/
+  #解决spring-boot修改jsp文件重启才生效的问题，正式环境更改为false
+  jsp-servlet:
+    init-parameters:
+      development: true
     
 spring:
   datasource:
     driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/base-admin?characterEncoding:utf-8
+    #convertToNull解决日期为0报错问题
+    url: jdbc:mysql://localhost:3306/base-admin?characterEncoding:utf-8&zeroDateTimeBehavior=convertToNull
     username: root
     password: root
-#解决mysql8小时不操作超时问题
+    #解决mysql8小时不操作超时问题
     test-on-borrow: false
     test-while-idle: true
     time-between-eviction-runs-millis: 3600000
@@ -33,6 +38,10 @@ logging:
     org:
       springframework:
         web: WARN
+    com:
+      supershen:
+        example:
+          dao: DEBUG
 
 mybatis-plus:
   mapper-locations: classpath:mybatis/mapper/*Mapper.xml
@@ -66,3 +75,5 @@ mybatis-plus:
   configuration:
     map-underscore-to-camel-case: true
     cache-enabled: false
+
+  

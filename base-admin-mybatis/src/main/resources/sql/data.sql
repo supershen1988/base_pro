@@ -13,8 +13,8 @@ CREATE TABLE base_user(
 	`password` VARCHAR(500) NOT NULL COMMENT '密码',
 	`creater` VARCHAR(255) NOT NULL COMMENT '创建人',
 	`create_time` TIMESTAMP NOT NULL COMMENT '创建时间',
-	`updater` VARCHAR(255) NOT NULL COMMENT '更新人',
-	`update_time` TIMESTAMP NOT NULL COMMENT '更新时间',
+	`updater` VARCHAR(255)  COMMENT '更新人',
+	`update_time` TIMESTAMP  COMMENT '更新时间',
 	salt varchar(64) COMMENT '加密盐值',
 	PRIMARY KEY (`id`)
 )ENGINE=INNODB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT '用户表';
@@ -22,7 +22,7 @@ CREATE TABLE base_user(
 CREATE TABLE base_role(
 	`id` INT(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
 	`name` VARCHAR(255) NOT NULL COMMENT '名称',
-	`remark` VARCHAR(1000) NOT NULL COMMENT '描述',
+	`remark` VARCHAR(1000) COMMENT '描述',
 	 PRIMARY KEY (`id`)
 )ENGINE=INNODB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='角色表';
 

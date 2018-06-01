@@ -24,7 +24,7 @@
             <property name="forceBigDecimals" value="false" />
         </javaTypeResolver>
         <!-- 生成模型的包名和位置 -->
-        <javaModelGenerator targetPackage="com.supershen.example.entity" targetProject="src/main/java">
+        <javaModelGenerator targetPackage="com.supershen.example.entity" targetProject="src/test/java">
             <property name="enableSubPackages" value="true" />
             <property name="trimStrings" value="true" />
         </javaModelGenerator>
@@ -33,12 +33,12 @@
             <property name="enableSubPackages" value="true" />
         </sqlMapGenerator>
         <!-- 生成DAO的包名和位置 -->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.supershen.example.dao" implementationPackage="com.supershen.example.dao.impl"  targetProject="src/main/java">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.supershen.example.dao" implementationPackage="com.supershen.example.dao.impl"  targetProject="src/test/java">
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
         
         <!-- 要生成哪些表 -->
-        <table tableName="base_user" domainObjectName="User"
+        <table tableName="base_role" domainObjectName="Role"
             enableCountByExample="false" enableUpdateByExample="false"
             enableDeleteByExample="false" enableSelectByExample="false"
             selectByExampleQueryId="false"></table>
