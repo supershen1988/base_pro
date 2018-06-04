@@ -20,7 +20,7 @@ https://github.com/springside/springside4/wiki/Home4.0
 3. 扩展了shiro标签；
 4. 简单实现用户、角色、权限管理及用户登录修改密码。
 5. 做分支项目将spring data jpa 更改为mybatis版本；
-6. shiro用户登录密码更改为加密算法（现在是明文密码）；
+6. shiro用户登录密码更改为加密算法；
 后续迭代：
 1. 增加shiro权限控制，实现直接访问url提示“无权限”功能；
 2. 增加工作流框架
