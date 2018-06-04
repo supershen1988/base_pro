@@ -73,6 +73,7 @@ public class UserService {
 		userMapper.insert(entity);
 	}
 	
+	
 	@Transactional(readOnly = true)
 	public User findByUsernameAndState(String username) {
 		User user = new User(username);
@@ -175,6 +176,27 @@ public class UserService {
 		user.setPlainPassword(Constants.PASSWORD);
 		this.entryptPassword(user);
 		userMapper.updateAllColumnById(user);
+	}
+
+	/**
+	 * 修改密码
+	 */
+	public int changePassword(Integer userId, String old_password, String new_password) {
+		User entity = userMapper.selectById(userId);
+		entity.setPlainPassword(old_password);
+		// 旧密码加密
+		String oldpassword = this.entryptOldPassword(entity);
+
+		if (!oldpassword.equals(entity.getPassword())) {
+			return 0;
+		}
+
+		entity.setPlainPassword(new_password);
+		this.entryptPassword(entity);
+		
+		userMapper.updateById(entity);
+
+		return 1;
 	}
 
 }
