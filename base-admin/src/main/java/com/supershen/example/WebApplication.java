@@ -4,6 +4,7 @@ import javax.servlet.Filter;
 import javax.validation.Validator;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.embedded.ConfigurableEmbeddedServletContainer;
@@ -18,6 +19,7 @@ import com.supershen.example.config.MySiteMeshFilter;
 
 // SpringBoot 应用标识
 @SpringBootApplication
+@EnableAutoConfiguration
 public class WebApplication extends SpringBootServletInitializer {
 
 	/**

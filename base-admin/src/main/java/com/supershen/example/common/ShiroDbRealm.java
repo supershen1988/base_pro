@@ -23,7 +23,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.google.common.base.Objects;
 import com.supershen.example.entity.User;
 import com.supershen.example.service.AccountService;
-import com.supershen.example.service.UserService;
+import com.supershen.example.service.YonghuService;
 import com.supershen.example.utils.Encodes;
 /**
  * shiro授权回调类
@@ -84,11 +84,11 @@ public class ShiroDbRealm extends AuthorizingRealm {
 	 */
 	@PostConstruct
 	public void initCredentialsMatcher() {
-		HashedCredentialsMatcher matcher = new HashedCredentialsMatcher(UserService.HASH_ALGORITHM);
+		HashedCredentialsMatcher matcher = new HashedCredentialsMatcher(YonghuService.HASH_ALGORITHM);
 		
 		//SimpleCredentialsMatcher matcher = new SimpleCredentialsMatcher();
 		
-		 matcher.setHashIterations(UserService.HASH_INTERATIONS);
+		 matcher.setHashIterations(YonghuService.HASH_INTERATIONS);
 
 		setCredentialsMatcher(matcher);
 	}

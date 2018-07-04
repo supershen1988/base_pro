@@ -21,7 +21,7 @@ public class AccountService {
 	private UserDao userDao;
 
 	@Resource
-	private UserService userService;
+	private YonghuService yonghuService;
 
 	@Transactional(readOnly = true)
 	public User findUserById(Long id) {
@@ -56,14 +56,14 @@ public class AccountService {
 		User entity = userDao.findOne(userId);
 		entity.setPlainPassword(old_password);
 		// 旧密码加密
-		String oldpassword = userService.entryptOldPassword(entity);
+		String oldpassword = yonghuService.entryptOldPassword(entity);
 
 		if (!oldpassword.equals(entity.getPassword())) {
 			return 0;
 		}
 
 		entity.setPlainPassword(new_password);
-		userService.entryptPassword(entity);
+		yonghuService.entryptPassword(entity);
 		
 		userDao.save(entity);
 

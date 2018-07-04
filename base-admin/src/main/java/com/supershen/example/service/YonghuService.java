@@ -15,6 +15,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.supershen.example.common.SysConstants;
@@ -28,9 +29,10 @@ import com.supershen.example.utils.Digests;
 import com.supershen.example.utils.Encodes;
 import com.supershen.example.utils.UserHelper;
 
+
 @Component
 @Transactional
-public class UserService {
+public class YonghuService {
 	
 	private static final int SALT_SIZE = 8;
 	public static final String HASH_ALGORITHM = "SHA-1";
@@ -54,7 +56,8 @@ public class UserService {
 		return userDao.findAll(spec, pageRequest);
 	}
 	
-	public void save(User entity, String ids) {
+	@Transactional
+	public void saveUser(User entity, String ids) {
 		Date time = new Date();
 		if(entity.getId() == null){
 			if(userDao.findByUsernameAndState(entity.getUsername(), "1") != null){
@@ -79,6 +82,9 @@ public class UserService {
 		entity.setUpdater(UserHelper.getCurrentUser().getUsername());
 		entity.setUpdateTime(time);
 		userDao.save(entity);
+		//int a = 100/0;
+		//throw new RuntimeException("保存失败");
+		//TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
 	}
 	
 	@Transactional(readOnly = true)

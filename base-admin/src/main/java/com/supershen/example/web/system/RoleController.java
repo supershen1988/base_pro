@@ -28,6 +28,8 @@ import com.supershen.example.web.Servlets;
 
 /**
  * 角色管理
+ * @author gshen
+ *
  */
 @Controller
 @RequestMapping(value = "/sys/role")
@@ -111,6 +113,11 @@ public class RoleController {
 		return "system/permForm";
 	}
 
+	/**
+	 * 保存权限
+	 * @param entity 角色实体
+	 * @param perm 权限集合
+	 */
 	@RequestMapping(value = "savePerm", method = RequestMethod.POST)
 	public String savePerm(@Valid Role entity, @RequestParam(value = "perm") Long[] perm,
 			RedirectAttributes redirectAttributes) {
@@ -128,7 +135,6 @@ public class RoleController {
 	/**
 	 * Ajax请求校验roleName是否唯一。
 	 * 
-	 * @throws UnsupportedEncodingException
 	 */
 	@RequestMapping(value = "checkRoleName", produces = "text/plan;charset=UTF-8")
 	@ResponseBody

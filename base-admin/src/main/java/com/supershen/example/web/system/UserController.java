@@ -21,7 +21,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.supershen.example.Constants;
 import com.supershen.example.entity.User;
-import com.supershen.example.service.UserService;
+import com.supershen.example.service.YonghuService;
 import com.supershen.example.utils.UserHelper;
 import com.supershen.example.web.Servlets;
 
@@ -33,7 +33,7 @@ import com.supershen.example.web.Servlets;
 public class UserController {
 
 	@Autowired
-	private UserService userService;
+	private YonghuService yonghuService;
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String list(@RequestParam(value = "page", defaultValue = "1") int pageNumber,
@@ -41,7 +41,7 @@ public class UserController {
 			Model model, ServletRequest request) {
 		Map<String, Object> searchParams = Servlets.getParametersStartingWith(request, "search_");
 
-		Page<User> page = userService.findPage(searchParams, pageNumber, pageSize);
+		Page<User> page = yonghuService.findPage(searchParams, pageNumber, pageSize);
 
 		model.addAttribute("page", page);
 		model.addAttribute("sortType", sortType);
@@ -54,7 +54,7 @@ public class UserController {
 	@RequestMapping(value = "create", method = RequestMethod.GET)
 	public String create(Model model) {
 		model.addAttribute("entity", new User());
-		model.addAttribute("roles", userService.findRoleAll());
+		model.addAttribute("roles", yonghuService.findRoleAll());
 		return "system/userForm";
 	}
 	
@@ -68,7 +68,7 @@ public class UserController {
 		}
 		
 		try {
-			userService.save(entity, ids);
+			yonghuService.saveUser(entity, ids);
 			redirectAttributes.addFlashAttribute(Constants.MSG, "保存成功!");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -82,14 +82,14 @@ public class UserController {
 	
 	@RequestMapping(value = "update/{id}", method = RequestMethod.GET)
 	public String update(@PathVariable("id") Long id, Model model, RedirectAttributes redirectAttributes) {
-		User address = userService.findOne(id);
+		User address = yonghuService.findOne(id);
 		if(address == null || "0".equals(address.getState())){
 			redirectAttributes.addFlashAttribute(Constants.MSG, "用户已不存在");
 			return "redirect:/sys/user";
 		}
 		model.addAttribute("action", "update");
-		model.addAttribute("entity", userService.findOne(id));
-		model.addAttribute("roles", userService.findRoleAll());
+		model.addAttribute("entity", yonghuService.findOne(id));
+		model.addAttribute("roles", yonghuService.findRoleAll());
 		return "system/userForm";
 	}
 	
@@ -106,7 +106,7 @@ public class UserController {
 		}
 		
 		try {
-			userService.delete(id);
+			yonghuService.delete(id);
 			redirectAttributes.addFlashAttribute(Constants.MSG, "删除成功!");
 		} catch (ServiceException e) {
 			redirectAttributes.addFlashAttribute(Constants.MSG, "删除失败:" + e.getMessage());
@@ -117,13 +117,13 @@ public class UserController {
 	
 	@RequestMapping(value = "changePassword/{id}", method = RequestMethod.GET)
 	public String changePassword(@PathVariable("id") Long id, RedirectAttributes redirectAttributes){
-		User address = userService.findOne(id);
+		User address = yonghuService.findOne(id);
 		if(address == null || "0".equals(address.getState())){
 			redirectAttributes.addFlashAttribute(Constants.MSG, "用户已不存在");
 			return "redirect:/sys/user";
 		}
 		try {
-			userService.changePassword(id);
+			yonghuService.changePassword(id);
 			redirectAttributes.addFlashAttribute(Constants.MSG, "重置成功!");
 		} catch (Exception e) {
 			redirectAttributes.addFlashAttribute(Constants.MSG, "重置失败:" + e.getMessage());
@@ -143,7 +143,7 @@ public class UserController {
 		if (username.equals(old)) {
 			return "true";
 		}
-		User user = userService.findUserByName(username);
+		User user = yonghuService.findUserByName(username);
 		if (null == user || "0".equals(user.getState())) {
 			return "true";
 		}
@@ -157,7 +157,7 @@ public class UserController {
 	@ModelAttribute
 	public void modelAttribute(@RequestParam(value = "id", defaultValue = "-1") Long id, Model model) {
 		if (id != -1) {
-			model.addAttribute("entity", userService.findOne(id));
+			model.addAttribute("entity", yonghuService.findOne(id));
 		}
 	}
 }

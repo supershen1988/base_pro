@@ -8,7 +8,6 @@
 int current = page.getNumber() + 1;
 int begin = Math.max(1, current - paginationSize/2);
 int end = Math.min(begin + (paginationSize - 1), page.getTotalPages());
-
 request.setAttribute("current", current);
 request.setAttribute("begin", begin);
 request.setAttribute("end", end);
