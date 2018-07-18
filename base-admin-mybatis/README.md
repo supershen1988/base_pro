@@ -37,3 +37,6 @@ https://github.com/springside/springside4/wiki/Home4.0
 
 
 最后感谢江南白衣兄的springside伴我成长。
+
+如果能帮助到大家，就请我喝杯咖啡。
+![Alt text](https://github.com/supershen1988/base_pro/blob/master/base-admin-mybatis/readme/weixin.png)
