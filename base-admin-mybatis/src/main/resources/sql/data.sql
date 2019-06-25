@@ -16,6 +16,7 @@ CREATE TABLE base_user(
 	`updater` VARCHAR(255)  COMMENT '更新人',
 	`update_time` TIMESTAMP  COMMENT '更新时间',
 	salt varchar(64) COMMENT '加密盐值',
+        `state` varchar(10) DEFAULT '1' COMMENT '是否删除',
 	PRIMARY KEY (`id`)
 )ENGINE=INNODB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT '用户表';
 
